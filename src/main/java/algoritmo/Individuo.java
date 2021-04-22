@@ -42,7 +42,7 @@ public class Individuo implements Comparable<Individuo>{
 			}
 		}
 		if (somaEspacos > this.limiteEspaco) {
-			somaEspacos= -1.0;
+			somaEspacos= (double) -2;
 		}
 
 		this.notaAvaliacao = nota;
@@ -77,6 +77,8 @@ public class Individuo implements Comparable<Individuo>{
 		filhos.get(0).setGeracao(this.geracao + 1);
 		filhos.get(1).setCromossomo(filho2);
 		filhos.get(1).setGeracao(this.geracao + 1);
+		System.out.println(filhos.get(0).espacoUsado);
+		System.out.println(filhos.get(1).espacoUsado);
 
 		return filhos;
 
