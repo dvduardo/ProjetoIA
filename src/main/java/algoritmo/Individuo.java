@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Individuo implements Comparable<Individuo>{
-	private List<Object> espacos = new ArrayList<>();
-	private List<Object> valores = new ArrayList<>();
+	private List<Object> espacos;
+	private List<Object> valores;
 	private Double limiteEspaco;
 	private Double notaAvaliacao;
 	private Double espacoUsado;
@@ -29,7 +29,7 @@ public class Individuo implements Comparable<Individuo>{
 	}
 
 	/**
-	 * Calcula a o preço total da carga e o gasto de espaço do caminhão
+	 * Calcula a o preco total da carga e o gasto de espaco do caminhao
 	 */
 
 	public void avaliacao() {
@@ -51,7 +51,7 @@ public class Individuo implements Comparable<Individuo>{
 
 	/**
 	 * Fara um crossover entre dois individuos mesclando seus cromossomos entre 2
-	 * filhos e formando uma nova geração.
+	 * filhos e formando uma nova geracao.
 	 * 
 	 * @param outroIndividuo Individou a qual quer fazer o crossover
 	 * @return Os filhos gerados da mesclagem dos dois individuos.
@@ -60,11 +60,11 @@ public class Individuo implements Comparable<Individuo>{
 	public List<Individuo> crossover(Individuo outroIndividuo) {
 		int corte = (int) Math.round(Math.random() * this.cromossomo.size());
 
-		List filho1 = new ArrayList<>();
+		ArrayList<Object> filho1 = new ArrayList<>();
 		filho1.addAll(outroIndividuo.getCromossomo().subList(0, corte));
 		filho1.addAll(this.cromossomo.subList(corte, this.cromossomo.size()));
 
-		List filho2 = new ArrayList<>();
+		ArrayList<Object> filho2 = new ArrayList<>();
 		filho2.addAll(this.cromossomo.subList(0, corte));
 		filho2.addAll(outroIndividuo.getCromossomo().subList(corte, this.cromossomo.size()));
 
@@ -83,11 +83,12 @@ public class Individuo implements Comparable<Individuo>{
 	}
 
 	/**
-	 * Pega o cromossomo do Individuo e aplica uma mutação na qual inverte um ou mais genes dependendo da taxa de mutação.
+	 * Pega o cromossomo do Individuo e aplica uma mutacao na qual inverte um ou mais genes dependendo da taxa de mutacao.
 	 * 
 	 * @param taxaMutacao
-	 * 			A porcentagem de ocorrer uma mutação
+	 * 			A porcentagem de ocorrer uma mutacao
 	 * @return
+	 * 		retorna o individuo mutado
 	 */
 	public Individuo mutacao(Double taxaMutacao) {
 		//System.out.println("\nAntes da Mutação:  " + this.cromossomo);
@@ -101,7 +102,7 @@ public class Individuo implements Comparable<Individuo>{
 			}
 		}
 
-		//System.out.println("Depois da mutação: " + this.cromossomo);
+		//System.out.println("Depois da mutacao: " + this.cromossomo);
 
 		return this;
 	}

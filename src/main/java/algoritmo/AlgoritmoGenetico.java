@@ -55,7 +55,6 @@ public class AlgoritmoGenetico {
 		this.tamanhoPopulacao = tamanhoPopulacao;
 	}
 
-	@SuppressWarnings("unchecked")
 	public void inicializaPopulacao(List espacos, List valores, Double limiteEspaco) {
 		for (int i = 0; i < this.tamanhoPopulacao; i++) {
 			Individuo teste = new Individuo(espacos, valores, limiteEspaco);
@@ -90,8 +89,8 @@ public class AlgoritmoGenetico {
 
 	public int selecionaPai(Double somaAvaliacao) {
 		int pai = -1;
-		Double valorSorteado = Math.random() * somaAvaliacao;
-		Double soma = 0.0;
+		double valorSorteado = Math.random() * somaAvaliacao;
+		double soma = 0.0;
 		int i = 0;
 
 		while (i < this.populacao.size() && soma < valorSorteado) {
@@ -105,7 +104,7 @@ public class AlgoritmoGenetico {
 	public void visualizaGeracao() {
 		Individuo melhor = this.populacao.get(0);
 		this.melhoresCromossomos.add(melhor);
-		System.out.println("Geração: " + melhor.getGeracao() + " Valor: " + melhor.getNotaAvaliacao() + " Espaço: "
+		System.out.println("Geracao: " + melhor.getGeracao() + " Valor: " + melhor.getNotaAvaliacao() + " Espaco: "
 				+ melhor.getEspacoUsado() + " Cromossomo: " + melhor.getCromossomo());
 	}
 
@@ -118,7 +117,7 @@ public class AlgoritmoGenetico {
 		this.ordenaPopulacao();
 
 		for (Individuo individuo : this.populacao) {
-			System.out.println("Geração: " + individuo.getGeracao() + "\nEspaço " + individuo.getEspacoUsado());
+			System.out.println("Geracao: " + individuo.getGeracao() + "\nEspaco " + individuo.getEspacoUsado());
 		}
 //		
 		this.visualizaGeracao();
@@ -143,14 +142,14 @@ public class AlgoritmoGenetico {
 			}
 			this.ordenaPopulacao();
 //			for (Individuo individuo : this.populacao) {
-//				System.out.println("Geração: "+individuo.getGeracao()+"Nota "+individuo.getNotaAvaliacao());
+//				System.out.println("Geracao: "+individuo.getGeracao()+"Nota "+individuo.getNotaAvaliacao());
 //			}
 			this.visualizaGeracao();
 			Individuo melhor = this.populacao.get(0);
 			this.melhorIndividuo(melhor);
 		}
-		System.out.println("Melhor Solucão:\nGeração: " + this.melhorSolucao.getGeracao() + " Valor: "
-				+ this.melhorSolucao.getNotaAvaliacao() + " Espaço: " + this.melhorSolucao.getEspacoUsado()
+		System.out.println("Melhor Solucao:\nGeracao: " + this.melhorSolucao.getGeracao() + " Valor: "
+				+ this.melhorSolucao.getNotaAvaliacao() + " Espaco: " + this.melhorSolucao.getEspacoUsado()
 				+ " Cromossomo: " + this.melhorSolucao.getCromossomo());
 		return this.melhorSolucao.getCromossomo();
 	}

@@ -2,13 +2,13 @@ package algoritmo;
 
 public class Produto {
 	private String nome;
-	private Double espaço;
+	private Double espaco;
 	private Double valor;
 
-	public Produto(String nome, Double espaço, Double valor) {
+	public Produto(String nome, Double espaco, Double valor) {
 		this.nome = nome;
 		this.valor = valor;
-		this.espaço = espaço;
+		this.espaco = espaco;
 	}
 
 	public String getNome() {
@@ -27,12 +27,12 @@ public class Produto {
 		this.valor = valor;
 	}
 
-	public Double getEspaço() {
-		return espaço;
+	public Double getEspaco() {
+		return espaco;
 	}
 
-	public void setEspaço(Double espaço) {
-		this.espaço = espaço;
+	public void setEspaco(Double espaco) {
+		this.espaco = espaco;
 	}
 
 }
